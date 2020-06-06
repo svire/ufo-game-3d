@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SymbolicLivesCounterScript : MonoBehaviour {
 
+    //This script is responsible for current players stat, depending of actions in the game
+
+
     public GameObject[] hearts;
     private int lives;
 	void Start () {

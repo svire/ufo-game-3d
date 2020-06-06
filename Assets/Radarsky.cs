@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Diagnostics;
-public class Radarsky : MonoBehaviour {
+public class Radarsky : MonoBehaviour
+{
 
+    
+    //To be able to say when the UFO is in the range of anti-aircraft guns, we have a UFO RADAR on the right
+    // So when the the UFO is in potentially danger zone radar will turn red, and it will start to make some really anoying noise 
+    
     public Image[] bars;
     private bool smanji = true;
     private float tempTime = 0;
@@ -12,22 +17,17 @@ public class Radarsky : MonoBehaviour {
     private int max = 100;
     //public Transform nlo;
     public GameObject nlo;
-
- // //  private AudioSource audio;
-  //  public AudioClip let;
-  //  public AudioClip RadarOn;
-
     private bool inZone = false;
-
     public GameObject[] pvos;
     private int numPVO;
 
+    
 
-
-    void Start() {
+    void Start()
+    {
         now = max;
         numPVO = pvos.Length;
-      //  audio = GetComponent<AudioSource>();
+        //  audio = GetComponent<AudioSource>();
 
     }
     public void Add(int value)
@@ -87,7 +87,8 @@ public class Radarsky : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         //every 3 seconds can see ovo
 
 
@@ -104,7 +105,7 @@ public class Radarsky : MonoBehaviour {
         var distance4 = Vector3.Distance(nlo.transform.position, pvos[3].transform.position);
         var distance5 = Vector3.Distance(nlo.transform.position, pvos[4].transform.position);
 
-        if (distance1 < 180f|| distance2 < 180f || distance3 < 180f || distance4 < 180f || distance5 < 180f)
+        if (distance1 < 180f || distance2 < 180f || distance3 < 180f || distance4 < 180f || distance5 < 180f)
         {
             ChangeColor1();
         }
@@ -112,33 +113,6 @@ public class Radarsky : MonoBehaviour {
         {
             ChangeColor2();
         }
-
-       
-
-
-     //   for (int i = 0; i < numPVO; i++)
-     //   {
-
-      //      var distance = Vector3.Distance(nlo.transform.position, pvos[i].transform.position);
-      ////      Debug.Log(distance.ToString());
-      //     if (distance < 170f)
-       //     {
-     //           inZone = true;
-      //          ChangeColor1();
-
-
-       //     }
-      //      if(distance>170f)
-      //      {
-     //           inZone = false;
-     //           ChangeColor2();
-     //       }
-
-    //    }
-
-
-
-
 
 
         if (smanji == true)
@@ -150,17 +124,14 @@ public class Radarsky : MonoBehaviour {
         {
             Increase();
         }
-              
 
 
         if (Input.GetKeyDown("h"))
         {
             Component[] djeca = this.transform.GetComponentsInChildren<Image>();
 
-            string[] bojePrije = new string[] { "#101565","#3e31a6","#709aec","#13568e","#052e7d","#0d1365","#05a6d8","#054de6"};
-
+            string[] bojePrije = new string[] { "#101565", "#3e31a6", "#709aec", "#13568e", "#052e7d", "#0d1365", "#05a6d8", "#054de6" };
             string[] bojeMjenjaj = new string[] { "#FF2D00", "#D55C42", "#E8291C", "#93b33f", "#F93714", "#EC3A0A", "#D52323", "#0e9f3f" };
-
             //samo jos sa zutima za srednju udaljenost 
             //crvena je u zoni
             for (int i = 0; i < djeca.Length; i++)
@@ -168,19 +139,14 @@ public class Radarsky : MonoBehaviour {
                 UnityEngine.Debug.Log(djeca[i].ToString());
                 Image sliba = (Image)djeca[i];
                 // djeca[i].GetComponent<Color>().
-
-               // sliba.color = Color.rg
+                // sliba.color = Color.rg
                 //[ napravi nizu tuplova sa bojama rgb da se prebaci
-
-           
-            Color myColor = new Color();
+                Color myColor = new Color();
                 //Color.TryParseHexString("#F00", out myColor);
-
-                if (inZone==true)
+                if (inZone == true)
                 {
                     ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
                     sliba.color = myColor;
-
 
                 }
                 if (inZone == false)
@@ -198,21 +164,19 @@ public class Radarsky : MonoBehaviour {
     {
         StackTrace stackTrace = new StackTrace();
         UnityEngine.Debug.Log(stackTrace.GetFrame(1).GetMethod().Name);
-       
-        if (stackTrace.GetFrame(1).GetMethod().Name=="ChangeColor2")
+
+        if (stackTrace.GetFrame(1).GetMethod().Name == "ChangeColor2")
         {
-         //   audio.Stop();
-            //  https://www.youtube.com/watch?v=6OT43pvUyfY
-          //  audio.clip = let;
-           // audio.Play();
+            //   audio.Stop();           
+            //  audio.clip = let;
+            // audio.Play();
 
         }
         if (stackTrace.GetFrame(1).GetMethod().Name == "ChangeColor1")
         {
-          //  audio.Stop();
-         //   audio.clip = RadarOn;
-         //   audio.Play();
-
+            //  audio.Stop();
+            //   audio.clip = RadarOn;
+            //   audio.Play();
         }
     }
 
@@ -220,52 +184,23 @@ public class Radarsky : MonoBehaviour {
     {
         FindObjectOfType<AudioManager>().Play("voznja");
         Zvuk();
-        //audio.PlayOneShot(let);
         Component[] djeca = this.transform.GetComponentsInChildren<Image>();
-
-      //  string[] bojePrije = new string[] { "#101565", "#3e31a6", "#709aec", "#13568e", "#052e7d", "#0d1365", "#05a6d8", "#054de6" };
-
         string[] bojeMjenjaj = new string[] { "#FF2D00", "#D55C42", "#E8291C", "#93b33f", "#F93714", "#EC3A0A", "#D52323", "#0e9f3f" };
 
-        //samo jos sa zutima za srednju udaljenost 
-        //crvena je u zoni
         for (int i = 0; i < djeca.Length; i++)
         {
-           // UnityEngine.Debug.Log(djeca[i].ToString());
+
             Image sliba = (Image)djeca[i];
-            // djeca[i].GetComponent<Color>().
-           
-            // sliba.color = Color.rg
-            //[ napravi nizu tuplova sa bojama rgb da se prebaci
-
-
             Color myColor = new Color();
-            //Color.TryParseHexString("#F00", out myColor);
-            //ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
-            // sliba.color = myColor;
-
-
-          //  if (inZone)
-          //  {
-                ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
-                sliba.color = myColor;
-
-
-          //  }
-         //   if (inZone = false)
-         //   {
-            //    ColorUtility.TryParseHtmlString(bojePrije[i], out myColor);
-           //     sliba.color = myColor;
-          //  }
-
+            ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
+            sliba.color = myColor;
 
         }
     }
-  
 
 
 
-        private void ChangeColor2()
+    private void ChangeColor2()
     {
         FindObjectOfType<AudioManager>().Play("radarOn");
         //  audio.PlayOneShot(RadarOn);
@@ -274,44 +209,16 @@ public class Radarsky : MonoBehaviour {
 
         string[] bojePrije = new string[] { "#101565", "#3e31a6", "#709aec", "#13568e", "#052e7d", "#0d1365", "#05a6d8", "#054de6" };
 
-        //string[] bojeMjenjaj = new string[] { "#FF2D00", "#D55C42", "#E8291C", "#93b33f", "#F93714", "#EC3A0A", "#D52323", "#0e9f3f" };
 
-        //samo jos sa zutima za srednju udaljenost 
-        //crvena je u zoni
         for (int i = 0; i < djeca.Length; i++)
         {
-         //   UnityEngine.Debug.Log(djeca[i].ToString());
+
             Image sliba = (Image)djeca[i];
-            // djeca[i].GetComponent<Color>().
-
-            // sliba.color = Color.rg
-            //[ napravi nizu tuplova sa bojama rgb da se prebaci
-
-
             Color myColor = new Color();
-            //Color.TryParseHexString("#F00", out myColor);
-            //ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
-            // sliba.color = myColor;
-
-
-        //    if (inZone)
-        //    {
-         //       ColorUtility.TryParseHtmlString(bojeMjenjaj[i], out myColor);
-         //       sliba.color = myColor;
-
-
-         //   }
-        //    if (inZone = false)
-        //    {
-                ColorUtility.TryParseHtmlString(bojePrije[i], out myColor);
-                sliba.color = myColor;
-        //    }
-
+            ColorUtility.TryParseHtmlString(bojePrije[i], out myColor);
+            sliba.color = myColor;
 
         }
-
-
-
 
     }
 
@@ -321,9 +228,8 @@ public class Radarsky : MonoBehaviour {
         for (int i = 0; i < bars.Length; i++)
         {
             float kolicnik = float.Parse(now.ToString()) / float.Parse(max.ToString());
-            
             bars[i].fillAmount = kolicnik;
-            
+
         }
     }
 }

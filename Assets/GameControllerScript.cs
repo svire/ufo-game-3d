@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour {
 
+
     public Transform spawnpoint;
     public GameObject brod;
-
-
 	void Start () {
 		
 	}

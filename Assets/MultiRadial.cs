@@ -11,7 +11,7 @@ public class MultiRadial : MonoBehaviour
     public int maxHealth = 100;
     private int health;
     private bool smanji = true;
-    private float tempTime=0;
+    private float tempTime = 0;
     void Start()
     {
         health = maxHealth;
@@ -44,7 +44,7 @@ public class MultiRadial : MonoBehaviour
     {
 
 
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
 
             tempTime += Time.deltaTime;
@@ -83,20 +83,16 @@ public class MultiRadial : MonoBehaviour
 
     void Update()
     {
-        
-        
-            if (smanji == true)
-            {
-                WorkUnder();
 
-            }
-            else if (smanji == false)
-            {
-                WorkOver();
-            }
+        if (smanji == true)
+        {
+            WorkUnder();
 
-        
-        
+        }
+        else if (smanji == false)
+        {
+            WorkOver();
+        }
 
 
         if (Input.GetKeyDown("l"))

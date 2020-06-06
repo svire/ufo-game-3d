@@ -12,14 +12,12 @@ public class AudioManager : MonoBehaviour {
 
     //loop for a lisst and for a each sound loop audio source 
 
-
 	void Awake()
     {
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }

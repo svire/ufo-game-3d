@@ -13,6 +13,9 @@ public class Particle : MonoBehaviour {
 		
 	}
 
+
+    //This function checks if the UFO Laser is aiming to the robotKyle, and depending of that, and the player input decide if 
+    //UFO will abduct the Kyle
     public void OnParticleCollision(GameObject other)
     {
 
@@ -24,7 +27,6 @@ public class Particle : MonoBehaviour {
             // Debug.Log(ufovisina);
             jeste = true;
             other.GetComponent<Kyle>().enabled=false;
-
             Debug.Log("Dizi smradonju");
             dizalica = other;
            // IdiGore(dizalica);
@@ -35,22 +37,7 @@ public class Particle : MonoBehaviour {
     }
     private void IdiGore(GameObject dizalica)
     {
-        /*    float positiony = dizalica.transform.position.y;
-            // int covavisina;
-            //  int.TryParse(dizalica.transform.position.y.ToString(), out covavisina);
-
-            float ufopositiony = ufo.transform.position.y;
-            //  int ufovisina;
-            //  int.TryParse(ufo.transform.position.y.ToString(), out ufovisina);
-
-            float ovo;
-
-            float.TryParse(ufo.transform.position.x.ToString(), out ovo);
-            //dizalica.transform.position = new Vector3(ufo.transform.position.x, 0, ufo.transform.position.z);
-            //dizalica.transform.position.z = ufo.transform.position.z;
-            //Vector3 ufopos = new Vector3(ufo.transform.position.x, 0, ufo.transform.position.z);
-
-            // dizalica.transform.position = ufopos;*/
+        
         if (dizalica != null)
         {
             float ufox = ufo.transform.position.x;
@@ -71,38 +58,9 @@ public class Particle : MonoBehaviour {
         }
       
 
-
-
-     /*  float ufoz = ufo.transform.position.z;
-        float dizz = dizalica.transform.position.z;
-        float translatez = ufoz - dizz;
-        if (translatez>0)
-        {
-            dizalica.transform.Translate(0, 0,translatez);
-        }
-
-        if (translatez < 0)
-        {
-            dizalica.transform.Translate(0, 0, -translatez);
-        }
-        // float translatez = ufoz - dizz;
-
-        Debug.Log(translatex);*/
-        
-    /*    if (positiony <= ufopositiony - 5)
-        {
-            positiony += 0.5f;
-             dizalica.transform.Translate(0, 1.1f, 0);
-           // transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-
-
-        }
-        */
+     
     }
-    //sad ti valja raditi ui 
-   //ili ralease na moving
-   //if full capacity ufo is slightly slower
-   //napravi trampolinu
+
 
     void OvoPozovi()
     {
@@ -162,20 +120,11 @@ public class Particle : MonoBehaviour {
                     Destroy(dizalica);
                 }
             }
-           /* else if(time>2f)
-            {
-                dizalica.GetComponent<Rigidbody>().useGravity = true;
-                time = 0;
-                //ovde ga onda trebas i ispraviti
-                //dizalica.GetComponent<Rigidbody>().transform.rotation=new Vector3(0,0,0); //(0,0,0,0)
-            }
-            */
+          
         }
         else if (time > 2f)
         {
-            //nesto izbacuje jebo ga  brat
-
-            try
+             try
             {
                 dizalica.GetComponent<Rigidbody>().useGravity = true;
                 time = 0;
@@ -184,8 +133,7 @@ public class Particle : MonoBehaviour {
             {
                // Debug.Log("JBG");
             }
-            //ovde ga onda trebas i ispraviti
-            //dizalica.GetComponent<Rigidbody>().transform.rotation=new Vector3(0,0,0); //(0,0,0,0)
+         
         }
 
     }
@@ -195,47 +143,6 @@ public class Particle : MonoBehaviour {
     void Update () {
 
         OvoPozovi();
-        // float x, y, z;
-        //float.TryParse(ufo.transform.position.x.ToString(), out x);
-
-        // Debug.Log(dizalica);
-
-        //Debug.Log(ufopos);
-
-      /*  time += Time.deltaTime;
-
-        if (Input.GetKeyDown("m") && jeste == true && dizalica != null&&time<2f)
-        {
-
-            Debug.Log(time);
-            time = 0;//restart time
-
-            //  if (Input.GetKeyDown("m") && time < 3f)
-            //   {
-            dizalica.GetComponent<Rigidbody>().useGravity = false;
-            dizalica.GetComponent<Rigidbody>().transform.Rotate(8f, 0, 8f);
-              
-               // dizalica.GetComponent<Rigidbody>().useGravity = false;
-                float dizpozy = dizalica.transform.position.y;
-
-
-            //ne traba kurcev ufo vec particle sistem sa njim se kolajduje
-                if (dizpozy < ufo.transform.position.y - 3)
-                {
-                    dizalica.transform.Translate(0, 0.9f, 0);
-                    dizpozy += 0.9F;
-
-                }
        
-        }
-        else if(time>2f)
-        {
-            dizalica.GetComponent<Rigidbody>().useGravity = true;
-            time = 0;
-            //ovde ga onda trebas i ispraviti
-            //dizalica.GetComponent<Rigidbody>().transform.rotation; (0,0,0,0)
-        }
-        
-		*/
 	}
 }
