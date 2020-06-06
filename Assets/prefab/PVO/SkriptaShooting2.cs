@@ -16,8 +16,7 @@ public class SkriptaShooting2 : MonoBehaviour
 
     void Start()
     {
-
-       // audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
         prefab.GetComponent<Rigidbody>().useGravity = false;
 
     }
@@ -25,45 +24,38 @@ public class SkriptaShooting2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Invoke("Restart", 3.0f);
-       // Reload();
+        
         var distance = Vector3.Distance(camerica.transform.position, target.position);
-       // Debug.Log(distance);
+        // Debug.Log(distance);
+        //If the UFO is in the range of shooting, in this case, <150f then run shoot, or run the Pucaj() function
         if (distance < 150f)
         {
-           
+
             if (holdingBall)
-            {
-               // Invoke("Pucaj", 2.0f); //zapucace za 10 sekundi i to ce trajati negoraniceno
-               Pucaj();
+            {           
+                //After every shot, anti-aircraft gun reloads, so if is reloaded you can shot again
+                Pucaj();
             }
-            
+
         }
     }
+    //Reloads anti-aircraft gun
+    //Reload will be invoked every 2 second
     void Reload()
-    {
-        //yield return new WaitForSeconds(5);
+    {        
         holdingBall = true;
     }
 
-
+    // Shooting function 
     void Pucaj()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        // {
-        //  audioSource.Play();
-
+    {        
         FindObjectOfType<AudioManager>().Play("pucanje");
-            Vector3 pos = new Vector3(camerica.transform.position.x, camerica.transform.position.y, camerica.transform.position.z);
-            GameObject novi = Instantiate(prefab, pos, Quaternion.identity);
-
-            novi.GetComponent<Rigidbody>().AddForce(camerica.transform.forward * ballThrowingForce);
-        holdingBall = false;
+        Vector3 pos = new Vector3(camerica.transform.position.x, camerica.transform.position.y, camerica.transform.position.z);
+        GameObject novi = Instantiate(prefab, pos, Quaternion.identity);
+        novi.GetComponent<Rigidbody>().AddForce(camerica.transform.forward * ballThrowingForce);
+        holdingBall = false;        
         Invoke("Reload", 2.0f);
+     }
 
-      //  }
-    }
-
-
-
+    
 }

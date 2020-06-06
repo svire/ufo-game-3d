@@ -17,10 +17,8 @@ public class Kyle : MonoBehaviour {
 	}
     public void OnParticleCollision(GameObject other)
     {
-        Debug.Log(other.name.ToString());
-       
-
-
+        Debug.Log(other.name.ToString());      
+        
     }
 
     // Update is called once per frame
