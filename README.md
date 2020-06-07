@@ -4,6 +4,7 @@ This is demo version of my first ever 3D game named ufo-attack 3D.
 
 ## Game design
 
+
 Game was created using only free assets from Unity store, and some geometrical shapes combined.
 
 Sound:
@@ -20,13 +21,18 @@ UFO - spheres
 
 
 ## Scenario
+
 Story is pretty simple (as you already assumed), aliens are trying to populate the planet earth while they face resistance from ground troops (anti-aircraft guns, booby traps) is tring to put them away. To make game more challenging i added countdown timer.
 
 
 ## Gameplay
+
 In folder screenshots you can look at .gif files that actually shows the gameplay.
 
+Take of...
 ![](screenshots/takeoff.gif)
+
+Abducting poor Kyle...
 ![](screenshots/liftup.gif)
 
 
