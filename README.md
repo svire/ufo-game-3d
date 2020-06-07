@@ -27,12 +27,16 @@ Story is pretty simple (as you already assumed), aliens are trying to populate t
 
 ## Gameplay
 
-In folder screenshots you can look at .gif files that actually shows the gameplay.
+Take a look in screenshots folder.
 
-Take of...
+   ### Take of...
 ![](screenshots/takeoff.gif)
 
-Abducting poor Kyle...
+   ### Abducting poor Kyle...
 ![](screenshots/liftup.gif)
+
+   ### Losing life in cornfield
+![](screenshots/antiaircraft.gif)
+
 
 
