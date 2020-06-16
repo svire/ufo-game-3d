@@ -1,6 +1,6 @@
 # UFO ATTACK 3D :alien:
 
-This is demo version of my first ever 3D game named ufo-attack 3D. 
+This is demo version of my first ever 3D game named ufo-attack 3D.  [:framed_picture: HERE](https://github.com/svire/ufo-game-3d/tree/master/screenshots)
 
 ## Game design
 
@@ -27,7 +27,7 @@ Story is pretty simple (as you already assumed), aliens are trying to populate t
 
 ## Gameplay
 
-Take a look in screenshots  .[**folder**](https://github.com/svire/ufo-game-3d/tree/master/screenshots)
+Take a look in screenshots  [**folder**](https://github.com/svire/ufo-game-3d/tree/master/screenshots) .
 
    ### Take of...
 ![](screenshots/takeoff.gif)
