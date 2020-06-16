@@ -1,4 +1,4 @@
-# UFO ATTACK 3D
+# UFO ATTACK 3D :alien:
 
 This is demo version of my first ever 3D game named ufo-attack 3D. 
 
