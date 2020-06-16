@@ -27,7 +27,7 @@ Story is pretty simple (as you already assumed), aliens are trying to populate t
 
 ## Gameplay
 
-Take a look in screenshots folder.
+Take a look in screenshots  .[*folder*](https://github.com/svire/ufo-game-3d/tree/master/screenshots)
 
    ### Take of...
 ![](screenshots/takeoff.gif)
